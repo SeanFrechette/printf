@@ -5,12 +5,12 @@
 typedef struct specdef
 {
 	char *spec;
-	void (*f)();
+	char ** (*f)();
 } specdef_t;
 int _putchar(char c);
 int _printf(const char *format, ...);
 void print_to_console(char *str);
 
-int catchar(char input);
-int catstring(char *input);
+char ** catchar(char input);
+char ** catstring(char *input);
 #endif
