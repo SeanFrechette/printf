@@ -26,14 +26,14 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == specifier[j].spec[0])
 				{
-					specifier[j].f(arg, i);
+					buffer = specifier[j].f(arg, i);
 					i++;
 				}
 			}
 		}
 	}
 
-	print_to_console(format);
+	print_to_console(buffer);
 	va_end(arg);
 	return (0);
 }
