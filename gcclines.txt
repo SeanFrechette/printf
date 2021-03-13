@@ -1,4 +1,5 @@
 #template
 gcc -Wall -pedantic -Werror -Wextra [function]-main.c [function].c -o [function]
 gcc -Wall -pedantic -Werror -Wextra printconsole_test.c print_to_console.c _putchar.c -o printtest
+gcc -Wall -pedantic -Werror -Wextra catchar_test.c catchar.c -o catchartest
 gcc -Wall -pedantic -Werror -Wextra printf_test.c printf.c -o printf
