@@ -8,6 +8,7 @@
 int _printf(const char *format, ...)
 {
 	unsigned int i, j; /* iterators */
+	char **buffer;
 	va_list arg;
 	specdef_t specifier[] = {
 		{"c", catchar},
@@ -21,16 +22,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == specifier[j].spec[0])
+			for (j = 0; specifier[j].spec; j++) /* loop through specifiers */
 			{
-				for (j = 0; specifier[j].spec; j++) /* loop through specifiers */
+				if (format[i + 1] == specifier[j].spec[0])
 				{
-					specifier[j].f(arg);
+					specifier[j].f(arg, i);
+					i++;
 				}
 			}
 		}
 	}
 
+	print_to_console(format);
 	va_end(arg);
 	return (0);
 }
