@@ -9,8 +9,8 @@ typedef struct specdef
 } specdef_t;
 int _putchar(char c);
 int _printf(const char *format, ...);
-void print_to_console(char *str);
+void print_to_console(char *str, int a);
 
-int catchar(char input);
-int catstring(char *input);
+/*int catchar(char input);*/
+/*int catstring(char *input);*/
 #endif

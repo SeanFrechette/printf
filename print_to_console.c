@@ -6,8 +6,10 @@
  * print_to_console - prints to console from buffer using write
  * @s: input string
  */
-void print_to_console(char *s)
+void print_to_console(char *s, int c)
 {
-	write(1, s, strlen(s));
-	_putchar(10);
+	if (c == 1)
+		write(1, s, strlen(s));
+	else
+		write(1, &c, 1);
 }
