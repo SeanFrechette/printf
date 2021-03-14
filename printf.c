@@ -1,39 +1,72 @@
+#include <stdio.h>
 #include "holberton.h"
-/**
- * _printf - print string
- * @format: string
- * @...: flags and variables
- * Return: Zero
- */
-int _printf(const char *format, ...)
-{
-	unsigned int i, j; /* iterators */
-	char **buffer;
-	va_list arg;
-	specdef_t specifier[] = {
-		{"c", catchar},
-		{"s", catstring},
-		{NULL, NULL}
-	};
-	
-	va_start(arg, format);
 
-	for (i = 0; format && format[i]; i++) /* loop through string */
+/**
+ * print_number - prints integer
+ * @n: integer
+ */
+
+void print_number(unsigned long long int n)
+{
+	unsigned long long int x = 1;
+	unsigned long long int i = n;
+
+	while (n && i / x >= 10)
 	{
-		if (format[i] == '%')
+		x = x * 10;
+	}
+	for (; x >= 10; x = x / 10)
+	{
+		_putchar(i / x + '0');
+		i = i - (i / x) * x;
+	}
+	_putchar(i % 10 + '0');
+}
+/**
+ * _printf - prints string from several types
+ * @format: the string
+ * @...: multiple arguments to translate into string
+ */
+void _printf(char *format, ...)
+{
+	int iter = 0;
+	unsigned int i, j;
+	char *s;
+	va_list arg;
+
+	va_start(arg, format);
+	while (format[iter] != '\0')
+	{
+		if (format[iter] != '%')
 		{
-			for (j = 0; specifier[j].spec; j++) /* loop through specifiers */
+			_putchar(format[iter]);
+		}
+		if (format[iter] == '%')
+		{
+			iter++;
+			switch (format[iter])
 			{
-				if (format[i + 1] == specifier[j].spec[0])
+			case 'c':
+				i = va_arg(arg, int);
+				_putchar(i);
+				break;
+			case 'd':
+				i = va_arg(arg, int);
+				if (i < 0)
 				{
-					buffer = specifier[j].f(arg, i);
-					i++;
+					i = -i;
+					_putchar('-');
 				}
+				print_number(i);
+				break;
+			case 's':
+				s = va_arg(arg, char *);
+				for (j = 0; s[j]; j++)
+					_putchar(s[j]);
+				break;
 			}
 		}
+		iter++;
 	}
-
-	print_to_console(buffer);
 	va_end(arg);
-	return (0);
 }
