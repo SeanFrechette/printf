@@ -9,5 +9,4 @@
 void print_to_console(char *s)
 {
 	write(1, s, strlen(s));
-	_putchar(10);
 }
