@@ -9,7 +9,7 @@
  *} specdef_t;
  */
 int _putchar(char c);
-int _printf(const char *format, ...);
+int printf(const char *format, ...);
 void _print_rev_recursion(char *s);
 void rot13(char *s);
 void convert_to_hex(char *s);
