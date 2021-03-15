@@ -15,10 +15,5 @@ void rot13(char *s);
 void convert_to_hex(char *s);
 void print_number(unsigned long int n);
 void convert_to_binary(unsigned int s);
-/*
- *void print_to_console(char *str);
- *char * convert_multi_array(char **input);
- *char ** catchar(char input);
- *char ** catstring(char *input);
- */
+
 #endif
