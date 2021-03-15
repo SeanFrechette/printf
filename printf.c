@@ -92,6 +92,14 @@ int _printf(const char *format, ...)
 				}
 				for (i = i - 1; i >= 0; i--)
 					print_number(a[i]);
+			case 'r':
+				s = va_arg(arg, char *);
+				_print_rev_recursion(s);
+				break;
+			case 'R':
+				s = va_arg(arg, char *);
+				rot13(s);
+				break;
 			}
 		}
 		iter++;
