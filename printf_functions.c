@@ -4,7 +4,7 @@
  * @s: string
  * Return: Rot13 string
  */
-int rot13(char *s)
+int rot13(char *s, int count)
 {
 	int x, y;
 	char alpha[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -13,42 +13,55 @@ int rot13(char *s)
 	for (x = 0; s[x] != '\0'; x++)
 	{
 		if (s[x] < 65)
+		{
+			count++;
 			_putchar(s[x]);
+		}
 		else if (s[x] > 90 && s[x] < 97)
+		{
+			count++;
 			_putchar(s[x]);
+		}
 		else if (s[x] > 122)
+		{
+			count++;
 			_putchar(s[x]);
+		}
 		else
 		{
 			for (y = 0; alpha[y] != '\0'; y++)
 			{
 				if (s[x] == alpha[y])
 				{
+					count++;
 					_putchar(rot13[y]);
 				}
 			}
 		}
 	}
+	return (count);
 }
 
 /**
  * _print_rev_recursion - prints a string reverse
  * @s: a string
  */
-int _print_rev_recursion(char *s)
+int _print_rev_recursion(char *s, int count)
 {
 	if (*s)
 	{
-		_print_rev_recursion(s + 1);
+		_print_rev_recursion(s + 1, count);
+		count++;
 		_putchar(*s);
 	}
+	return (count);
 }
 
 /**
  * convert_to_hex - prints hex
  * @s: string
  */
-int convert_to_hex(char *s){
+int convert_to_hex(char *s, int count){
 	unsigned int j;
 	char hexArr[] = {
 	'0', '1', '2',
@@ -62,25 +75,32 @@ int convert_to_hex(char *s){
 	{
 		if (s[j] >= 32 && s[j] < 127)
 		{
+			count++;
 			_putchar(s[j]);
 		}
 		else
 		{
+			count++;
 			_putchar('\\');
+			count++;
 			_putchar('x');
+			count++;
 			_putchar(hexArr[s[j] / 16]);
+			count++;
 			_putchar(hexArr[s[j] % 16]);
 		}
 	}
+	return (count);
 }
 /**
  * convert_to_binary - convert to binary
  * @j: some integer
  */
-int convert_to_binary(unsigned int j)
+int convert_to_binary(unsigned int j, int count)
 {
 	int i;
 	int a[10];
+	
 
 	for (i = 0; j > 0; i++)
 	{
@@ -88,5 +108,6 @@ int convert_to_binary(unsigned int j)
 		j = j / 2;
 	}
 	for (i = i - 1; i >= 0; i--)
-		print_number(a[i]);
+		print_number(a[i], count);
+	return (count);
 }
