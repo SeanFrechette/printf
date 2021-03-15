@@ -35,6 +35,11 @@ void _print_rev_recursion(char *s)
 		_putchar(*s);
 	}
 }
+
+/**
+ * convert_to_hex - prints hex
+ * @s: string
+ */
 void convert_to_hex(char *s){
 	unsigned int j;
 	char hexArr[] = {
@@ -60,7 +65,10 @@ void convert_to_hex(char *s){
 		}
 	}				
 }
-
+/**
+ * convert_to_binary - convert to binary
+ * @j: some integer
+ */
 void convert_to_binary(unsigned int j)
 {
 	int i;
