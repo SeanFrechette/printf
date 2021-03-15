@@ -35,11 +35,6 @@ void _print_rev_recursion(char *s)
 		_putchar(*s);
 	}
 }
-
-/**
- * convert_to_hex - converts string to hex
- * @s: a string
- */
 void convert_to_hex(char *s){
 	unsigned int j;
 	char hexArr[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '\0'};
@@ -59,11 +54,8 @@ void convert_to_hex(char *s){
 		}
 	}				
 }
-/**
- * convert_to_binary - converts string to binary
- * @s: a string
- */
-void convert_to_binary(char *s)
+
+void convert_to_binary(unsigned int j)
 {
 	int i;
 	int a[10];
