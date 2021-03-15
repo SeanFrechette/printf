@@ -50,7 +50,13 @@ void _print_rev_recursion(char *s)
  */
 void convert_to_hex(char *s){
 	unsigned int j;
-	char hexArr[] = { '0', '1', '2', '3', '4','5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '\0'};
+	char hexArr[] = {
+	'0', '1', '2',
+	'3', '4', '5',
+	'6', '7', '8',
+	'9', 'A', 'B',
+	'C', 'D', 'E',
+	'F', '\0'};
 
 	for (j = 0; s[j]; j++)
 	{
