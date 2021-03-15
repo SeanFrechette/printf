@@ -27,10 +27,10 @@ void print_number(unsigned long long int n)
  * @format: the string
  * @...: multiple arguments to translate into string
  */
-void _printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
-	int iter = 0;
-	unsigned int i, j;
+	int iter = 0, i;
+	unsigned int j;
 	char *s;
 	va_list arg;
 
@@ -70,4 +70,5 @@ void _printf(const char *format, ...)
 		iter++;
 	}
 	va_end(arg);
+	return (0);
 }
