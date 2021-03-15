@@ -6,10 +6,10 @@
  * @n: integer
  */
 
-void print_number(unsigned long long int n)
+int print_number(unsigned long int n)
 {
-	unsigned long long int x = 1;
-	unsigned long long int i = n;
+	unsigned long int x = 1;
+	unsigned long int i = n;
 
 	while (n && i / x >= 10)
 	{
@@ -29,8 +29,9 @@ void print_number(unsigned long long int n)
  */
 int _printf(const char *format, ...)
 {
+	
 	int iter = 0, i;
-	unsigned int j;
+	unsigned int j, counter = 0;
 	char *s;
 	va_list arg;
 

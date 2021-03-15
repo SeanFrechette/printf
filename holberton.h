@@ -10,15 +10,10 @@
  */
 int _putchar(char c);
 int _printf(const char *format, ...);
-void _print_rev_recursion(char *s);
-void rot13(char *s);
-void convert_to_hex(char *s);
-void print_number(unsigned long long int n);
-void convert_to_binary(unsigned int s);
-/*
- *void print_to_console(char *str);
- *char * convert_multi_array(char **input);
- *char ** catchar(char input);
- *char ** catstring(char *input);
- */
+int _print_rev_recursion(char *s);
+int rot13(char *s);
+int convert_to_hex(char *s);
+int print_number(unsigned long int n);
+int convert_to_binary(unsigned int s);
+
 #endif
