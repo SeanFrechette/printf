@@ -1,0 +1,36 @@
+NAME
+	printf
+
+LIBRARY
+	Holberton C Library
+
+SYNOPSIS
+	#include "holberton.h"
+	printf(const char * format, ...);
+
+DESCRIPTION
+	The printf() function prints a string to stdout.
+	The format string will print out as given, unless a percent sign (%) is
+	in the string. If the character after the percent sign is in the list
+	below, printf will choose the corresponding argument from '...'.
+	Ex.
+		var1 = "string";
+		var2 = 2;
+		var3 = "another thing";
+		printf("Some %s, or some number %d, and %s\n", var1, var2, var3);
+
+		[STDOUT]
+
+		Some string, or some number 2, and another thing
+
+	The following options are available for special characters after
+	the % sign:
+
+	'd'		Prints an integer
+
+	's'		Prints a string
+
+	'c'		Prints a character
+
+	'i'		Prints an integer
+	
