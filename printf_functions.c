@@ -4,7 +4,7 @@
  * @s: string
  * Return: Rot13 string
  */
-void rot13(char *s)
+int rot13(char *s)
 {
 	int x, y;
 	char alpha[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -35,7 +35,7 @@ void rot13(char *s)
  * _print_rev_recursion - prints a string reverse
  * @s: a string
  */
-void _print_rev_recursion(char *s)
+int _print_rev_recursion(char *s)
 {
 	if (*s)
 	{
@@ -48,7 +48,7 @@ void _print_rev_recursion(char *s)
  * convert_to_hex - prints hex
  * @s: string
  */
-void convert_to_hex(char *s){
+int convert_to_hex(char *s){
 	unsigned int j;
 	char hexArr[] = {
 	'0', '1', '2',
@@ -77,7 +77,7 @@ void convert_to_hex(char *s){
  * convert_to_binary - convert to binary
  * @j: some integer
  */
-void convert_to_binary(unsigned int j)
+int convert_to_binary(unsigned int j)
 {
 	int i;
 	int a[10];
