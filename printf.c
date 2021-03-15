@@ -27,7 +27,7 @@ void print_number(unsigned long long int n)
  * @format: the string
  * @...: multiple arguments to translate into string
  */
-int printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int iter = 0, i;
 	unsigned int j;
