@@ -27,7 +27,7 @@ void print_number(unsigned long long int n)
  * @format: the string
  * @...: multiple arguments to translate into string
  */
-void _printf(char *format, ...)
+void _printf(const char *format, ...)
 {
 	int iter = 0;
 	unsigned int i, j;
@@ -50,6 +50,7 @@ void _printf(char *format, ...)
 				i = va_arg(arg, int);
 				_putchar(i);
 				break;
+			case 'i':
 			case 'd':
 				i = va_arg(arg, int);
 				if (i < 0)
