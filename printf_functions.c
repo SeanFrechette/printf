@@ -55,10 +55,9 @@ void convert_to_hex(char *s){
 	}				
 }
 
-void convert_to_binary(char *s)
+void convert_to_binary(unsigned int j)
 {
 	int i;
-	unsigned int j;
 	int a[10];
 
 	for (i = 0; j > 0; i++)

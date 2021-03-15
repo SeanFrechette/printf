@@ -71,7 +71,7 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				j = va_arg(arg, int);
-
+				convert_to_binary(j);
 				break;
 			case 'r':
 				s = va_arg(arg, char *);
