@@ -12,12 +12,20 @@ void rot13(char *s)
 
 	for (x = 0; s[x] != '\0'; x++)
 	{
-		for (y = 0; alpha[y] != '\0'; y++)
+		if (s[x] < 65)
+			_putchar(s[x]);
+		else if (s[x] > 90 && s[x] < 97)
+			_putchar(s[x]);
+		else if (s[x] > 122)
+			_putchar(s[x]);
+		else
 		{
-			if (s[x] == alpha[y])
+			for (y = 0; alpha[y] != '\0'; y++)
 			{
-				_putchar(rot13[y]);
-				break;
+				if (s[x] == alpha[y])
+				{
+					_putchar(rot13[y]);
+				}
 			}
 		}
 	}
@@ -42,9 +50,9 @@ void _print_rev_recursion(char *s)
  */
 void convert_to_hex(char *s){
 	unsigned int j;
-	char hexArr[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '\0'};
+	char hexArr[] = { '0', '1', '2', '3', '4','5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '\0'};
 
-	for (j = 0; s[j]; j++) 
+	for (j = 0; s[j]; j++)
 	{
 		if (s[j] >= 32 && s[j] < 127)
 		{
@@ -57,7 +65,7 @@ void convert_to_hex(char *s){
 			_putchar(hexArr[s[j] / 16]);
 			_putchar(hexArr[s[j] % 16]);
 		}
-	}				
+	}
 }
 /**
  * convert_to_binary - convert to binary
