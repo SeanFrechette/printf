@@ -1,7 +1,0 @@
-#template
-gcc -Wall -pedantic -Werror -Wextra [function]-main.c [function].c -o [function]
-
-gcc -Wall -pedantic -Werror -Wextra printf_test.c printf.c _putchar.c -o _printf
-
-gcc -Wall -pedantic -Werror -Wextra ./*.c -o _printf
-
