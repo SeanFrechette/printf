@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 {
 	int iter = 0, i;
 	unsigned int j;
-	char hexArr[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '\0'};
+	char hexArr[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '\0'};
 	char *s;
 	int a[10];
 	va_list arg;
@@ -92,6 +92,7 @@ int _printf(const char *format, ...)
 				}
 				for (i = i - 1; i >= 0; i--)
 					print_number(a[i]);
+				break;
 			case 'r':
 				s = va_arg(arg, char *);
 				_print_rev_recursion(s);
