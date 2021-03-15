@@ -12,6 +12,9 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 void _print_rev_recursion(char *s);
 void rot13(char *s);
+void convert_to_hex(char *s);
+void print_number(unsigned long long int n);
+void convert_to_binary(char *s);
 /*
  *void print_to_console(char *str);
  *char * convert_multi_array(char **input);

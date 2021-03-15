@@ -31,9 +31,7 @@ int _printf(const char *format, ...)
 {
 	int iter = 0, i;
 	unsigned int j;
-	char hexArr[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', '\0'};
 	char *s;
-	int a[10];
 	va_list arg;
 
 	va_start(arg, format);
@@ -69,29 +67,11 @@ int _printf(const char *format, ...)
 				break;
 			case 'S':
 				s = va_arg(arg, char *);
-				for (j = 0; s[j]; j++)
-					if (s[j] >= 32 && s[j] < 127)
-					{
-						_putchar(s[j]);
-					}
-					else
-					{
-						_putchar('\\');
-						_putchar('x');
-						_putchar(hexArr[s[j] / 16]);
-						_putchar(hexArr[s[j] % 16]);
-					}
+				convert_to_hex(s);
 				break;
 			case 'b':
 				j = va_arg(arg, int);
 
-				for (i = 0; j > 0; i++)
-				{
-					a[i] = j % 2;
-					j = j / 2;
-				}
-				for (i = i - 1; i >= 0; i--)
-					print_number(a[i]);
 				break;
 			case 'r':
 				s = va_arg(arg, char *);
