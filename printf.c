@@ -6,10 +6,10 @@
  * @n: integer
  */
 
-void print_number(unsigned long long int n)
+void print_number(unsigned long int n)
 {
-	unsigned long long int x = 1;
-	unsigned long long int i = n;
+	unsigned long int x = 1;
+	unsigned long int i = n;
 
 	while (n && i / x >= 10)
 	{
