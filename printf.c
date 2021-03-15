@@ -65,6 +65,10 @@ int _printf(const char *format, ...)
 				for (j = 0; s[j]; j++)
 					_putchar(s[j]);
 				break;
+			case 'r':
+				s = va_arg(arg, char *);
+				_print_rev_recursion(s);
+				break;
 			}
 		}
 		iter++;
