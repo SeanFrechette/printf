@@ -10,6 +10,7 @@ int print_number(unsigned long int n)
 {
 	unsigned long int x = 1;
 	unsigned long int i = n;
+	int j = 0;
 
 	while (n && i / x >= 10)
 	{
@@ -18,9 +19,12 @@ int print_number(unsigned long int n)
 	for (; x >= 10; x = x / 10)
 	{
 		_putchar(i / x + '0');
+		j++;
 		i = i - (i / x) * x;
 	}
 	_putchar(i % 10 + '0');
+	j++;
+	return (j);
 }
 /**
  * _printf - prints string from several types
@@ -29,9 +33,9 @@ int print_number(unsigned long int n)
  */
 int _printf(const char *format, ...)
 {
-	
 	int iter = 0, i;
-	unsigned int j, counter = 0;
+	int bytes = 0;
+	unsigned int j;
 	char *s;
 	va_list arg;
 
@@ -41,6 +45,7 @@ int _printf(const char *format, ...)
 		if (format[iter] != '%')
 		{
 			_putchar(format[iter]);
+			bytes++;
 		}
 		if (format[iter] == '%')
 		{
@@ -50,6 +55,7 @@ int _printf(const char *format, ...)
 			case 'c':
 				i = va_arg(arg, int);
 				_putchar(i);
+				bytes++;
 				break;
 			case 'i':
 			case 'd':
@@ -58,34 +64,38 @@ int _printf(const char *format, ...)
 				{
 					i = -i;
 					_putchar('-');
+					bytes++;
 				}
-				print_number(i);
+				bytes = bytes + print_number(i);
 				break;
 			case 's':
 				s = va_arg(arg, char *);
 				for (j = 0; s[j]; j++)
+				{
 					_putchar(s[j]);
+					bytes++;
+				}
 				break;
 			case 'S':
 				s = va_arg(arg, char *);
-				convert_to_hex(s);
+				bytes = bytes + convert_to_hex(s);
 				break;
 			case 'b':
 				j = va_arg(arg, int);
-				convert_to_binary(j);
+				bytes = bytes + convert_to_binary(j);
 				break;
 			case 'r':
 				s = va_arg(arg, char *);
-				_print_rev_recursion(s);
+				bytes = bytes + _print_rev_recursion(s);
 				break;
 			case 'R':
 				s = va_arg(arg, char *);
-				rot13(s);
+				bytes = bytes + rot13(s);
 				break;
 			}
 		}
 		iter++;
 	}
 	va_end(arg);
-	return (0);
+	return (bytes);
 }

@@ -4,9 +4,10 @@
  * @s: string
  * Return: Rot13 string
  */
-int rot13(char *s, int count)
+int rot13(char *s)
 {
 	int x, y;
+	int count = 0;
 	char alpha[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot13[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
@@ -46,13 +47,22 @@ int rot13(char *s, int count)
  * _print_rev_recursion - prints a string reverse
  * @s: a string
  */
-int _print_rev_recursion(char *s, int count)
+int _print_rev_recursion(char *s)
 {
+	int slen;
+	int count = 0;
+
+	for (slen = 0; s[slen]; slen++)
+	{
+		continue;
+	}
 	if (*s)
 	{
-		_print_rev_recursion(s + 1, count);
-		count++;
-		_putchar(*s);
+		for (; slen >= 0; slen--)
+		{
+			count++;
+			_putchar(s[slen]);
+		}
 	}
 	return (count);
 }
@@ -61,8 +71,9 @@ int _print_rev_recursion(char *s, int count)
  * convert_to_hex - prints hex
  * @s: string
  */
-int convert_to_hex(char *s, int count){
+int convert_to_hex(char *s){
 	unsigned int j;
+	int count = 0;
 	char hexArr[] = {
 	'0', '1', '2',
 	'3', '4', '5',
@@ -96,11 +107,11 @@ int convert_to_hex(char *s, int count){
  * convert_to_binary - convert to binary
  * @j: some integer
  */
-int convert_to_binary(unsigned int j, int count)
+int convert_to_binary(unsigned int j)
 {
 	int i;
 	int a[10];
-	
+	int count = 0;
 
 	for (i = 0; j > 0; i++)
 	{
@@ -108,6 +119,6 @@ int convert_to_binary(unsigned int j, int count)
 		j = j / 2;
 	}
 	for (i = i - 1; i >= 0; i--)
-		print_number(a[i], count);
+		count = count + print_number(a[i]);
 	return (count);
 }
