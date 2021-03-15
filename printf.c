@@ -69,6 +69,10 @@ int _printf(const char *format, ...)
 				s = va_arg(arg, char *);
 				_print_rev_recursion(s);
 				break;
+			case 'R':
+				s = va_arg(arg, char *);
+				rot13(s);
+				break;
 			}
 		}
 		iter++;
