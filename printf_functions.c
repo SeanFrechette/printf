@@ -111,7 +111,7 @@ int convert_to_hex(char *s){
 int convert_to_binary(unsigned int j)
 {
 	int i;
-	int a[10];
+	int a[50];
 	int count = 0;
 	for (i = 0; j > 0; i++)
 	{
