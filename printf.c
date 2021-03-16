@@ -95,6 +95,12 @@ int _printf(const char *format, ...)
 			case '%':
 				_putchar(format[iter]);
 				bytes++;
+				break;
+			default:
+				_putchar('%');
+				_putchar(format[iter]);
+				bytes++;
+				break;
 			}
 		}
 		iter++;
