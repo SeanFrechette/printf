@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 			_putchar(format[iter]);
 			bytes++;
 		}
-		if (format[iter] == '%')
+		if ((format[iter] == '%' && format[iter + 1] != '%') || (format[iter] == '%' && format[iter - 1] != '%'))
 		{
 			iter++;
 			switch (format[iter])
@@ -92,6 +92,9 @@ int _printf(const char *format, ...)
 				s = va_arg(arg, char *);
 				bytes = bytes + rot13(s);
 				break;
+			case '%':
+				_putchar(format[iter]);
+				bytes++;
 			}
 		}
 		iter++;
