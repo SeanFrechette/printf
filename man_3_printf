@@ -12,7 +12,8 @@ DESCRIPTION
 	The printf() function prints a string to stdout.
 	The format string will print out as given, unless a percent sign (%) is
 	in the string. If the character after the percent sign is in the list
-	below, printf will choose the corresponding argument from '...'.
+	of special characters below, printf will choose the corresponding
+	argument from '...' (with va_arg).
 	Ex.
 		var1 = "string";
 		var2 = 2;
@@ -26,11 +27,19 @@ DESCRIPTION
 	The following options are available for special characters after
 	the % sign:
 
-	'd'		Prints an integer
+	'd'		substitutes an integer.
 
-	's'		Prints a string
+	's'		substitutes a string.
 
-	'c'		Prints a character
+	'c'		subsitutes a character.
 
-	'i'		Prints an integer
-	
+	'i'		substitutes an integer.
+
+	'S'		substitutes a string and converts that string's
+			non-printable characters to hexedecimal.
+
+	'b'		converts argument to binary.
+
+	'r'		converts string argument to a reversed string.
+
+	'R'		converts string argument to rot13'ed string.
