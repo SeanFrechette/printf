@@ -56,6 +56,7 @@ int _print_rev_recursion(char *s)
 	{
 		continue;
 	}
+	slen--;
 	if (*s)
 	{
 		for (; slen >= 0; slen--)
