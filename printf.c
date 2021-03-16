@@ -82,7 +82,13 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				j = va_arg(arg, int);
-				bytes = bytes + convert_to_binary(j);
+				if (j != 0)
+					bytes = bytes + convert_to_binary(j);
+				else
+				{
+					bytes++;
+					_putchar('0');
+				}
 				break;
 			case 'r':
 				s = va_arg(arg, char *);

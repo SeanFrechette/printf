@@ -113,12 +113,12 @@ int convert_to_binary(unsigned int j)
 	int i;
 	int a[10];
 	int count = 0;
-
 	for (i = 0; j > 0; i++)
 	{
 		a[i] = j % 2;
 		j = j / 2;
 	}
+	
 	for (i = i - 1; i >= 0; i--)
 		count = count + print_number(a[i]);
 	return (count);
