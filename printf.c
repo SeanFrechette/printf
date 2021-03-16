@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "holberton.h"
-
+#include <unistd.h>
 /**
  * print_number - prints integer
  * @n: integer
@@ -37,6 +37,7 @@ int _printf(const char *format, ...)
 	int bytes = 0;
 	unsigned int j;
 	char *s;
+	void *p;
 	va_list arg;
 
 	va_start(arg, format);
